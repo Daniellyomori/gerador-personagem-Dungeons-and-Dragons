@@ -1,0 +1,88 @@
+<div class="container contact">
+    <h5>GERAR PERSONAGEM</h5>
+    <hr />
+
+    <div class="row">
+      <div class="col s12">
+        <div
+          id="div-character-creation-message"
+          class="card-panel white-text"
+          [hidden]="!this.message"
+          [class.red]="this.characterInvalid"
+          [class.blue]="!this.characterInvalid"
+        >
+          {{ this.message }}
+        </div>
+      </div>
+      <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+            id="input-form-creation"
+            name="input-form-creation"
+            type="text"
+            [(ngModel)]="this.character.nomePersonagem"
+            prefix="R$ "
+            [class.my-invalid-input]="this.characterInvalid"
+          />
+          <label for="input-nameCharacter">Nome do Personagem</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+            id="input-form-creation"
+            name="input-form-creation"
+            type="text"
+            [(ngModel)]="this.character.tracosPersonalidade"
+            prefix="R$ "
+            [class.my-invalid-input]="this.characterInvalid"
+          />
+          <label for="input-nameCharacter">Traços Personalidade</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+            id="input-form-creation"
+            name="input-form-creation"
+            type="text"
+            [(ngModel)]="this.character.ideais"
+            prefix="R$ "
+            [class.my-invalid-input]="this.characterInvalid"
+          />
+          <label for="input-nameCharacter">Ideiais</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input
+            id="input-form-creation"
+            name="input-form-creation"
+            type="text"
+            [(ngModel)]="this.character.vinculos"
+            prefix="R$ "
+            [class.my-invalid-input]="this.characterInvalid"
+          />
+          <label for="input-nameCharacter">Vinculos</label>
+          </div>
+        </div>
+        <button
+          class="btn waves-effect waves-light red darken-4"
+          type="submit"
+          name="action"
+        >
+        Gerar
+        <i class="material-icons right">save</i>
+      </button>
+       
+      </form>
+    </div>
+    <!-- link home -->
+    <div class="row">
+      <div class="col s12 m6 offset-m3 center">
+        <a href="/index.html"> VOLTAR AO MENU PRINCIPAL </a>
+      </div>
+    </div>
+    <!-- link home -->
+  </div>

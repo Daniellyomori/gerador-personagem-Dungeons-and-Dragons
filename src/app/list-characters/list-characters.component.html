@@ -1,0 +1,30 @@
+<div>
+    <h5 class="center">Personagens criados</h5>
+    <hr />
+  
+    <div class="row">
+      <div class="col s12 m6 offset-m3">
+        <table>
+          <thead>
+            <tr>
+              <th data-field="td-value">Personagem</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr 
+              *ngFor="let c of this.characters"
+              [routerLink]="['listagem/detalhes', c.characterName]"
+            >
+              <td>{{ c.characterName}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row">
+        <div class="col s12 m6 offset-m3 center">
+          <a routerLink="/inicio"> VOLTAR AO MENU PRINCIPAL </a>
+        </div>
+      </div>
+
+</div>

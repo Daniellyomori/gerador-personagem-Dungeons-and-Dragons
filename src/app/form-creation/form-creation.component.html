@@ -1,5 +1,6 @@
+<app-modal [show]="modal.show" [content]="modal" (closeEvent)="onCloseModal()"></app-modal>
 <div class="container contact">
-    <h5>GERAR PERSONAGEM</h5>
+    <h5 class="center">GERAR PERSONAGEM</h5>
     <hr />
 
     <div class="row">
@@ -14,6 +15,8 @@
           {{ this.message }}
         </div>
       </div>
+      <app-modal-explanation-creation [characterName]="this.character.characterName" class="center"
+      (creationCharacterEvent)="this.onCreationCharacterEvent($event)"></app-modal-explanation-creation>
       <form class="col s12" #form="ngForm" (submit)="onSubmit()">
         <div class="row">
           <div class="input-field col s12">
@@ -21,8 +24,7 @@
             id="input-form-creation"
             name="input-form-creation"
             type="text"
-            [(ngModel)]="this.character.nomePersonagem"
-            prefix="R$ "
+            [(ngModel)]="this.character.characterName"
             [class.my-invalid-input]="this.characterInvalid"
           />
           <label for="input-nameCharacter">Nome do Personagem</label>
@@ -34,8 +36,7 @@
             id="input-form-creation"
             name="input-form-creation"
             type="text"
-            [(ngModel)]="this.character.tracosPersonalidade"
-            prefix="R$ "
+            [(ngModel)]="this.character.personalityTraits"
             [class.my-invalid-input]="this.characterInvalid"
           />
           <label for="input-nameCharacter">Traços Personalidade</label>
@@ -47,8 +48,7 @@
             id="input-form-creation"
             name="input-form-creation"
             type="text"
-            [(ngModel)]="this.character.ideais"
-            prefix="R$ "
+            [(ngModel)]="this.character.ideals"
             [class.my-invalid-input]="this.characterInvalid"
           />
           <label for="input-nameCharacter">Ideiais</label>
@@ -60,7 +60,7 @@
             id="input-form-creation"
             name="input-form-creation"
             type="text"
-            [(ngModel)]="this.character.vinculos"
+            [(ngModel)]="this.character.bonds"
             prefix="R$ "
             [class.my-invalid-input]="this.characterInvalid"
           />
@@ -81,7 +81,7 @@
     <!-- link home -->
     <div class="row">
       <div class="col s12 m6 offset-m3 center">
-        <a href="/index.html"> VOLTAR AO MENU PRINCIPAL </a>
+        <a routerLink="/inicio"> VOLTAR AO MENU PRINCIPAL </a>
       </div>
     </div>
     <!-- link home -->

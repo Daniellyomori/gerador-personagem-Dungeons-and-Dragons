@@ -13,23 +13,29 @@ export class FormCreationComponent implements OnInit{
   message = '';
 
   constructor(){}
+
+  modal = {
+    show: false,
+    title: '',
+    text: '',
+  };
   
   ngOnInit(): void {
     this.character = new Character('',  '','','');
   }
 
   onSubmit() {
-    if (this.character.nomePersonagem == '') {
+    if (this.character.characterName == '') {
       this.characterInvalid = true;
       this.message = 'Nome do personagem não pode ser vazio!';
       return;
     }
-    if (this.character.tracosPersonalidade == '') {
+    if (this.character.personalityTraits == '') {
       this.characterInvalid = true;
       this.message = 'Traços de personalidade não pode ser vazio!';
       return;
     }
-    if (this.character.ideais == '') {
+    if (this.character.ideals == '') {
       this.characterInvalid = true;
       this.message = 'Ideais não pode ser vazio!';
       return;
@@ -44,6 +50,16 @@ export class FormCreationComponent implements OnInit{
     this.character = new Character('','','','');
     this.characterInvalid = false;
     this.message = '';
+  }
+
+  onCreationCharacterEvent(event: boolean){
+    this.modal.show = event;
+    this.modal.title = 'Aviso';
+    this.modal.text = 'Será iniciada a criação aleatória do personagem';
+  }
+
+  onCloseModal(){
+    this.modal.show = false;
   }
 }
 

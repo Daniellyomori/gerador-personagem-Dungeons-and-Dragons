@@ -8,69 +8,95 @@
         <div
           id="div-character-creation-message"
           class="card-panel white-text"
-          [hidden]="!this.message"
-          [class.red]="this.characterInvalid"
-          [class.blue]="!this.characterInvalid"
+          [class.red]="!this.isSuccess"
+          [class.blue]="this.isSuccess"
+          *ngIf="this.isShowMessage"
         >
           {{ this.message }}
         </div>
       </div>
-      <app-modal-explanation-creation [characterName]="this.character.characterName" class="center"
+
+      <app-modal-explanation-creation [characterName]="this.character.characterName" [characterTraits]="this.character.personalityTraits"
+      [characterIdeals]="this.character.ideals" [characterBonds]="this.character.bonds" class="center"
       (creationCharacterEvent)="this.onCreationCharacterEvent($event)"></app-modal-explanation-creation>
+
       <form class="col s12" #form="ngForm" (submit)="onSubmit()">
-        <div class="row">
           <div class="input-field col s12">
             <input
-            id="input-form-creation"
-            name="input-form-creation"
+            id="input-characterName"
+            name="input-characterName"
             type="text"
+            class="validate"
             [(ngModel)]="this.character.characterName"
-            [class.my-invalid-input]="this.characterInvalid"
-          />
-          <label for="input-nameCharacter">Nome do Personagem</label>
+            pattern="^[a-zA-Z0-9_.-]*$"
+            #nameCharacter="ngModel"  
+            required      
+            />
+          <label for="input-nameCharacter">Nome do Personagem</label> 
+          <div class="red-text" [hidden]="nameCharacter.valid || nameCharacter.untouched">
+            Informe o nome do personagem.
           </div>
-        </div>
-        <div class="row">
+          <div class="red-text" *ngIf="nameCharacter.errors?.['required'] && nameCharacter.touched">
+            Nome completo do personagem é obrigatório.
+          </div>
+          <span
+          class="helper-text"
+          data-error="O campo é inválido"
+          data-success="Ok!"
+        ></span>
+          </div>
+
           <div class="input-field col s12">
             <input
-            id="input-form-creation"
-            name="input-form-creation"
+            id="input-characterTraits"
+            name="input-characterTraits"
             type="text"
             [(ngModel)]="this.character.personalityTraits"
-            [class.my-invalid-input]="this.characterInvalid"
+            class="validate"
+            #characterTraits = "ngModel"
+            required
           />
-          <label for="input-nameCharacter">Traços Personalidade</label>
+          <label for="input-characterTraits">Traços Personalidade</label>
+          <div class="red-text" [hidden]="characterTraits.valid || characterTraits.untouched">
+            Informe os traços de personalidade do seu personagem.
           </div>
-        </div>
-        <div class="row">
+          </div>
+
           <div class="input-field col s12">
             <input
-            id="input-form-creation"
-            name="input-form-creation"
+            id="input-characterIdeals"
+            name="input-characterIdeals"
             type="text"
             [(ngModel)]="this.character.ideals"
-            [class.my-invalid-input]="this.characterInvalid"
+            class="validate"
+            #characterBonds = "ngModel"
+            required
           />
-          <label for="input-nameCharacter">Ideiais</label>
+          <label for="input-characterIdeals">Ideais</label>
+          <div class="red-text" [hidden]="characterIdeals.valid || characterIdeals.untouched">
+            Informe os ideais do seu personagem.
           </div>
-        </div>
-        <div class="row">
+          </div>
+
           <div class="input-field col s12">
             <input
-            id="input-form-creation"
-            name="input-form-creation"
+            id="input-characterBonds"
+            name="input-form-characterBonds"
             type="text"
             [(ngModel)]="this.character.bonds"
-            prefix="R$ "
-            [class.my-invalid-input]="this.characterInvalid"
+            class="validate"
+            #characterIdeals = "ngModel"
+            required
           />
-          <label for="input-nameCharacter">Vinculos</label>
+          <label for="input-characterBonds">Vinculos</label>
+          <div class="red-text" [hidden]="characterBonds.valid || characterBonds.untouched">
+            Informe os ideais do seu personagem.
           </div>
-        </div>
-        <button
-          class="btn waves-effect waves-light red darken-4"
+          </div>
+          <button
+          class="btn waves-effect waves-light amber darken-4"
           type="submit"
-          name="action"
+          [disabled]="!form.valid"
         >
         Gerar
         <i class="material-icons right">save</i>

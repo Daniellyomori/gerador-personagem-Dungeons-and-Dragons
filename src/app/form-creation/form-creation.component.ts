@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 import { Character } from './../model/character';
+import { Shared } from 'src/app/util/shared';
+import { FormCreationService } from './form-creation.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-form-creation',
@@ -7,12 +11,17 @@ import { Character } from './../model/character';
   styleUrls: ['./form-creation.component.css']
 })
 export class FormCreationComponent implements OnInit{
-  character! : Character;
-  submitted = false;
-  characterInvalid = false;
-  message = '';
+  @ViewChild('form') form!: NgForm;
 
-  constructor(){}
+  character! : Character;
+  characters?: Character[];
+
+  isSubmitted!: boolean;
+  isShowMessage: boolean = false;
+  isSuccess!: boolean;
+  message!: string;
+
+  constructor(private characterService : FormCreationService){}
 
   modal = {
     show: false,
@@ -21,35 +30,29 @@ export class FormCreationComponent implements OnInit{
   };
   
   ngOnInit(): void {
+    Shared.initializeWebStorage();
     this.character = new Character('',  '','','');
+    this.characters = this.characterService.getCharacters();
   }
 
   onSubmit() {
-    if (this.character.characterName == '') {
-      this.characterInvalid = true;
-      this.message = 'Nome do personagem não pode ser vazio!';
-      return;
+    this.isSubmitted = true;
+    if(!this.characterService.isExist(this.character.characterName)){
+      this.characterService.save(this.character);
     }
-    if (this.character.personalityTraits == '') {
-      this.characterInvalid = true;
-      this.message = 'Traços de personalidade não pode ser vazio!';
-      return;
-    }
-    if (this.character.ideals == '') {
-      this.characterInvalid = true;
-      this.message = 'Ideais não pode ser vazio!';
-      return;
+    else{
+      this.characterService.update(this.character);
     }
 
-    this.characterInvalid = false;
-    this.message = 'Personagem criado com sucesso!';
-    this.submitted = true;
-  }
+    this.isShowMessage = true;
+    this.isSuccess = true;
+    this.message = 'Parte inicial salva com sucesso!';
 
-  onClickResetForm() {
+    this.form.reset();
     this.character = new Character('','','','');
-    this.characterInvalid = false;
-    this.message = '';
+    this.characters = this.characterService.getCharacters();
+
+    this.characterService.notifyTotalCharacters();
   }
 
   onCreationCharacterEvent(event: boolean){
@@ -61,5 +64,11 @@ export class FormCreationComponent implements OnInit{
   onCloseModal(){
     this.modal.show = false;
   }
+
+  onEdit(character: Character) {
+    let clone = Character.clone(character);
+    this.character = clone;
+  }
+
 }
 

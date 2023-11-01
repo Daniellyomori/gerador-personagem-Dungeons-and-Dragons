@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Character } from '../model/character';
-import { Constants } from 'src/util/constants';
-import { WebStorageUtil } from 'src/util/web-storage-util';
+import { Constants } from 'src/app/util/constants';
+import { WebStorageUtil } from 'src/app/util/web-storage-util';
 
 @Component({
   selector: 'app-list-characters',

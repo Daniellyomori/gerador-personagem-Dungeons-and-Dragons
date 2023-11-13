@@ -94,14 +94,13 @@
           </div>
           </div>
           <button
-          class="btn waves-effect waves-light amber darken-4"
-          type="submit"
-          [disabled]="!form.valid"
-        >
-        Gerar
-        <i class="material-icons right">save</i>
-      </button>
-       
+            class="btn waves-effect waves-light amber darken-4"
+            type="button"
+            [disabled]="!form.valid"
+            (click)="onSubmit()"
+          >Gerar
+          <i class="material-icons right">save</i>
+        </button>
       </form>
     </div>
     <!-- link home -->

@@ -20,6 +20,18 @@
             </tr>
           </tbody>
         </table>
+
+        <div *ngIf="!characters || characters!.length == 0">
+          <div class="row">
+            <div class="center-align">
+              <i class="col s12 material-icons large">mood_bad</i>
+              <span class="col s12 flow-text"
+                >Não existem personagens cadastrados!</span
+              >
+            </div>
+          </div>
+        </div>
+
       </div>
       <div class="row">
         <div class="col s12 m6 offset-m3 center">

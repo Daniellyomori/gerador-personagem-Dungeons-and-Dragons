@@ -4,11 +4,13 @@ import { LandPageComponent } from './land-page/land-page.component';
 import { FormCreationComponent } from './form-creation/form-creation.component';
 import { ListCharactersComponent } from './list-characters/list-characters.component';
 import { ListCharacterDetailsComponent } from './list-character-details/list-character-details.component';
+import { FormCreationDetailsComponent } from './form-creation-details/form-creation-details.component';
 
 const routes: Routes = [
   { path: 'inicio', component: LandPageComponent },
   { path: 'cadastro', component: FormCreationComponent },
   { path: 'listagem', component: ListCharactersComponent},
+  { path: 'cadastro/:characterName', component: FormCreationDetailsComponent},
   { path: 'listagem/detalhes/:characterName', component: ListCharacterDetailsComponent},
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 ];

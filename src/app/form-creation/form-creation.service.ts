@@ -15,13 +15,7 @@ export class FormCreationService{
 
     constructor(){
         this.charachters = WebStorageUtil.get(Constants.CHARACTERS_KEY);
-        if(this.charachters != null){
-            this.characterSource = new BehaviorSubject<number>(this.charachters.length);
-        }
-        else{
-            this.characterSource = new BehaviorSubject<number>(0);
-        }
-        
+        this.characterSource = new BehaviorSubject<number>(this.charachters.length);
     }
 
     save(character : Character){

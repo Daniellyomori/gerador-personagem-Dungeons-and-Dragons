@@ -1,0 +1,113 @@
+{
+  "characters": [
+    {
+      "id": "1",
+      "characterName": "Teste",
+      "personalityTraits": "Teste",
+      "ideals": "Teste",
+      "bonds": "Teste"
+    }
+  ],
+  "characterSheet": [
+    {
+      "idCharacter": "1",
+      "id": 588,
+      "classCharacter": "Monge",
+      "race": "Tiefling Abissal",
+      "aligment": "Chaotic Good",
+      "strength": 8,
+      "dexterity": 13,
+      "constitution": 9,
+      "intelligence": 15,
+      "wisdom": 13,
+      "charisma": 8,
+      "proeficiencyBonus": 2,
+      "armorClass": 23,
+      "initiative": 13,
+      "velocity": 9,
+      "perception": 10,
+      "arraySavingThrows": [
+        {
+          "nome": "Força",
+          "badge": 5,
+          "principal": true
+        },
+        {
+          "nome": "Destreza",
+          "badge": 3,
+          "principal": true
+        },
+        {
+          "nome": "Constituição",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Inteligência",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Sabedoria",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Carisma",
+          "badge": 1,
+          "principal": false
+        }
+      ]
+    },
+    {
+      "id": 517,
+      "classCharacter": "Bárbaro",
+      "race": "Humano Variante",
+      "aligment": "Neutral Good",
+      "strength": 11,
+      "dexterity": 12,
+      "constitution": 15,
+      "intelligence": 13,
+      "wisdom": 12,
+      "charisma": 13,
+      "proeficiencyBonus": 2,
+      "armorClass": 22,
+      "initiative": 12,
+      "velocity": 9,
+      "perception": 10,
+      "arraySavingThrows": [
+        {
+          "nome": "Força",
+          "badge": 5,
+          "principal": true
+        },
+        {
+          "nome": "Destreza",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Constituição",
+          "badge": 3,
+          "principal": true
+        },
+        {
+          "nome": "Inteligência",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Sabedoria",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Carisma",
+          "badge": 1,
+          "principal": false
+        }
+      ],
+      "idCharacter": "1"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+    "/characters": "/characters",
+    "/characters/:charactername": "/characters?charactername=:charactername",
+    "/characterSheet":"/characterSheet",
+    "/characterSheet/:charactername": "/characterSheet?id=:id"
+  }

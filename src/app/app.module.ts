@@ -13,6 +13,7 @@ import { ListCharacterDetailsComponent } from './list-character-details/list-cha
 import { FormCreationDetailsComponent } from './form-creation-details/form-creation-details.component';
 import { ModalExplanationCreationComponent } from './shared/modal-explanation-creation/modal-explanation-creation.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { ModalComponent } from './shared/modal/modal.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,11 +4,13 @@ import { Character } from './../model/character';
 import { Shared } from 'src/app/util/shared';
 import { FormCreationService } from './form-creation.service';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-form-creation',
   templateUrl: './form-creation.component.html',
-  styleUrls: ['./form-creation.component.css']
+  styleUrls: ['./form-creation.component.css'],
+  providers: [FormCreationService],
 })
 export class FormCreationComponent implements OnInit{
   @ViewChild('form') form!: NgForm;
@@ -21,7 +23,7 @@ export class FormCreationComponent implements OnInit{
   isSuccess!: boolean;
   message!: string;
 
-  constructor(private characterService : FormCreationService){}
+  constructor(private characterService : FormCreationService, private router: Router){}
 
   modal = {
     show: false,
@@ -48,11 +50,15 @@ export class FormCreationComponent implements OnInit{
     this.isSuccess = true;
     this.message = 'Parte inicial salva com sucesso!';
 
-    this.form.reset();
-    this.character = new Character('','','','');
-    this.characters = this.characterService.getCharacters();
-
     this.characterService.notifyTotalCharacters();
+
+    this.navegarComCharacter();
+  }
+
+  navegarComCharacter() {
+    this.router.navigate(['/cadastro', this.character.characterName], {
+      state: { character: this.character },
+    });
   }
 
   onCreationCharacterEvent(event: boolean){
@@ -70,5 +76,24 @@ export class FormCreationComponent implements OnInit{
     this.character = clone;
   }
 
+  onDelete(characterName: string){
+    let confirmation = window.confirm(
+      'Remover ' + characterName + '?'
+    );
+    if (!confirmation) {
+      return;
+    }
+    let response: boolean = this.characterService.delete(characterName);
+    this.isShowMessage = true;
+    this.isSuccess = response;
+    if (response) {
+      this.message = 'Personagem foi removido com sucesso!';
+    } else {
+      this.message = 'Opps! O personagem não pode ser removido!';
+    }
+    this.characters = this.characterService.getCharacters();
+    this.characterService.notifyTotalCharacters();
+
+  }
 }
 

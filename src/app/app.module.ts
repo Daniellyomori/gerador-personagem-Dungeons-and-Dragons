@@ -14,6 +14,7 @@ import { FormCreationDetailsComponent } from './form-creation-details/form-creat
 import { ModalExplanationCreationComponent } from './shared/modal-explanation-creation/modal-explanation-creation.component';
 import { ModalComponent } from './shared/modal/modal.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     ListCharacterDetailsComponent,
     FormCreationDetailsComponent,
     ModalExplanationCreationComponent,
-    ModalComponent
+    ModalComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

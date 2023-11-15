@@ -4,7 +4,7 @@
 @import "~material-icons/iconfont/material-icons.css";
 
 :root {
-    --primaryColor: #283593;
+    --primaryColor: #004AAD;
 }
   
 * {
@@ -16,7 +16,7 @@
 }
   
 body,html {
-    background-color: #ededed !important;
+    background-color: #fff !important;
 }
   
 hr {

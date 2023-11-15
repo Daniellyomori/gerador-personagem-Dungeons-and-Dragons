@@ -1,6 +1,3 @@
 {
-    "/characters": "/characters",
-    "/characters/:id": "/characters?id=:id",
-    "/characterSheet":"/characterSheet",
-    "/characterSheet/:id": "/characterSheet?id=:id"
+
 }

@@ -16,7 +16,7 @@
 
     <form class="col s12" #form="ngForm" (submit)="onSubmit()">
       <button
-        class="btn waves-effect waves-light amber darken-4 right"
+        class="btn waves-effect waves-light red darken-4 right"
         (click)="gerarDados()"
         type="button"
       >
@@ -96,7 +96,7 @@
 
       <div class="collection" id="collection-savingthrows"></div>
       <button
-        class="btn waves-effect waves-light amber darken-4"
+        class="btn waves-effect waves-light red darken-4"
         type="submit"
         [disabled]="!form.valid"
       >

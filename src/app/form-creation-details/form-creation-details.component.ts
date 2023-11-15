@@ -30,18 +30,13 @@ export class FormCreationDetailsComponent implements OnInit{
   constructor(private characterSheetService : FormCreationDetailsService, 
     private characterPromisseService: CharacterPromisseService, private router: ActivatedRoute){}
 
-  modal = {
-    show: false,
-    title: '',
-    text: '',
-  };
-  
+
   ngOnInit(): void {
     Shared.initializeWebStorage();
     this.router.params.subscribe(params => {
       this.characterName = params['characterName'];
       });
-    //this.character = WebStorageUtil.get(Constants.CHARACTER_NAME_KEY);
+
     this.characterSheet = new CharacterSheet();
     this.characterPromisseService
     .getByCharacterName(this.characterName)
@@ -60,19 +55,13 @@ export class FormCreationDetailsComponent implements OnInit{
 
   onSubmit() {
     this.characterSheetService
-    .do(this.characterSheet, this.characterName)
-    .then((value) =>{
-      this.characterSheetInvalid = false;
-      this.character = WebStorageUtil.get(this.characterName);
-      this.characterSheetMessage = 'Personagem Cadastrado';
-    })
-    .catch((e) => {
-      this.characterSheetInvalid = true;
-      this.characterSheetMessage = e;
-    })
-    .finally(() => {
-      this.characterSheet = new CharacterSheet();
-    });
+    .do(this.characterSheet, this.characterName).subscribe(
+      (data: CharacterSheet) => {
+        this.characterSheetInvalid = false;
+        console.log(data);
+        this.characterSheetMessage = `Salvo com sucesso`;
+      }
+    );
   }
 
   onResetClick() {

@@ -3,13 +3,13 @@ import { CharacterSheet } from './../model/characterSheet';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Character } from '../model/character';
-import { FormCreationService } from '../form-creation/form-creation.service';
 import { Shared } from '../util/shared';
 import { WebStorageUtil } from '../util/web-storage-util';
 import { Constants } from '../util/constants';
 import { FormCreationDetailsService } from './form-creation-details.service';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
-import { filter } from 'rxjs';
+import { ActivatedRoute, Router } from '@angular/router';
+declare var M: any;
+
 
 @Component({
   selector: 'app-form-creation-details',
@@ -28,30 +28,44 @@ export class FormCreationDetailsComponent implements OnInit{
   characterSheetMessage = '';
 
   constructor(private characterSheetService : FormCreationDetailsService, 
-    private characterPromisseService: CharacterPromisseService, private router: ActivatedRoute){}
+    private characterPromisseService: CharacterPromisseService, private router: ActivatedRoute,
+    private routerNavigate: Router){}
 
 
-  ngOnInit(): void {
-    Shared.initializeWebStorage();
-    this.router.params.subscribe(params => {
-      this.characterName = params['characterName'];
+    ngOnInit(): void {
+      Shared.initializeWebStorage();
+      this.gerarDados();
+    }
+
+    ngAfterViewInit() {
+      M.Modal.init(document.getElementById('success-modal'));
+    }
+  
+    openSuccessModal() {
+      const modalInstance = M.Modal.getInstance(document.getElementById('success-modal'));
+      modalInstance.open();
+    }
+  
+    gerarDados(): void{
+      this.router.params.subscribe(params => {
+        this.characterName = params['characterName'];
+        });
+  
+      this.characterSheet = new CharacterSheet();
+      this.characterPromisseService
+      .getByCharacterName(this.characterName)
+      .then((c: Character[]) => {
+        this.character = c[0];
+        localStorage.setItem(
+          Constants.CHARACTER_NAME_KEY,
+          JSON.stringify(Character.toWs(this.character))
+        );
+      })
+      .catch((e) => {
+        this.character = WebStorageUtil.get(this.characterName);
       });
-
-    this.characterSheet = new CharacterSheet();
-    this.characterPromisseService
-    .getByCharacterName(this.characterName)
-    .then((c: Character[]) => {
-      this.character = c[0];
-      localStorage.setItem(
-        Constants.CHARACTER_NAME_KEY,
-        JSON.stringify(Character.toWs(this.character))
-      );
-    })
-    .catch((e) => {
-      this.character = WebStorageUtil.get(this.characterName);
-    });
-    this.renderizaValoresTela();
-  }
+      this.renderizaValoresTela();
+    }
 
   onSubmit() {
     this.characterSheetService
@@ -60,13 +74,16 @@ export class FormCreationDetailsComponent implements OnInit{
         this.characterSheetInvalid = false;
         console.log(data);
         this.characterSheetMessage = `Salvo com sucesso`;
+        
+        this.openSuccessModal();
+
+        setTimeout(() => {
+          this.routerNavigate.navigate(['/inicio']); 
+        }, 1500);
       }
     );
   }
 
-  onResetClick() {
-    this.characterSheet = new CharacterSheet();
-  }
 
   renderizaValoresTela():void{
     const inputElementClass = document.getElementById("input-class") as HTMLInputElement;
@@ -113,6 +130,7 @@ export class FormCreationDetailsComponent implements OnInit{
 
     const collectionDiv = document.getElementById("collection-savingthrows") as HTMLInputElement;
     if (collectionDiv) {
+      collectionDiv.innerHTML = '';
         for (const item of this.characterSheet.arraySavingThrows) {
             const collectionItem = document.createElement("a");
             collectionItem.setAttribute("href", "#");

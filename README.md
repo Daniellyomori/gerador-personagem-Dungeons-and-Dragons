@@ -1,10 +1,13 @@
 # gerador-personagem-Dungeons-and-Dragons
+
 O objetivo principal será o desenvolvimento progressivo de um aplicativo que servirá de auxiliar à jogador que deseja jogar D&D, mas que não tem criatividade para criar um personagem. Serão cadastradas as classes, raças, características físicas e poderes padrões do jogo e aleatoriamente a aplicação irá gerar um personagem com essas informações, sendo necessário apenas escolher um nome e uma história para o personagem. Os personagens criados ficarão salvos caso o usuário queira utilizá-lo novamente.
 
 ## Protótipo
+
 https://www.figma.com/file/fGIs8bh1ij33xTObflVvKP/gerador-personagem-d%26d?type=design&node-id=2%3A179&mode=design&t=XPo1qynRFjlnJvEu-1
 
 ## Checklist
+
 - [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [x] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
 - [x] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
@@ -22,4 +25,4 @@ https://www.figma.com/file/fGIs8bh1ij33xTObflVvKP/gerador-personagem-d%26d?type=
 - [x] Apresentar uma lista de dados com a diretiva estrutural ngFor.
 - [x] Usar a diretiva ngIf.
 - [x] Formatar a apresentação de dados com Pipes.
-- [ ] Build e deploy da aplicação.
+- [x] Build e deploy da aplicação.

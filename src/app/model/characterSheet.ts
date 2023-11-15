@@ -16,7 +16,6 @@ export class CharacterSheet{
     public perception: number;
 
     public id: number;
-    public idCharacter!: string;
 
     characterSheet! : CharacterSheet;
     
@@ -42,6 +41,7 @@ export class CharacterSheet{
             this.perception = 10;
             this.arraySavingThrows = this.calculaPericia(this.classCharacter);
     }
+    
 
     public escolherClasseAleatoria(): string {
       const arrayClass = ['Bárbaro', 'Bardo', 'Bruxo', 'Clérigo', 'Druida', 'Feiticeiro', 'Guardião', 'Guerreiro',
@@ -93,7 +93,7 @@ export class CharacterSheet{
       }
 
       calculaPericia(classe:string): any[]{
-        var arraySavingThrows = [
+        var arraySavingThrowsTemp = [
           {nome: "Força", badge: 1, principal: false},
           {nome: "Destreza", badge: 1, principal: false},
           {nome: "Constituição", badge: 1, principal: false},
@@ -103,7 +103,7 @@ export class CharacterSheet{
         ];
 
         if(classe === "Bárbaro"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Força") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -113,11 +113,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Bardo"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Destreza") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -127,11 +127,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Bruxo"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Sabedoria") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -141,11 +141,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Clérigo"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Sabedoria") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -155,11 +155,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Druida"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Inteligência") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -169,11 +169,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Feiticeiro"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Constituição") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -183,11 +183,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Guardião"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Força") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -197,11 +197,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Guerreiro"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Força") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -211,11 +211,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Ladino"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Destreza") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -225,11 +225,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Mago"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Inteligência") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -239,11 +239,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Monge"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Força") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -253,11 +253,11 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
         else if(classe === "Paladino"){
-          for (const item of arraySavingThrows) {
+          for (const item of arraySavingThrowsTemp) {
             if (item.nome === "Sabedoria") {
               item.badge = 3 + this.proeficiencyBonus;
               item.principal = true;
@@ -267,9 +267,9 @@ export class CharacterSheet{
               item.principal = true;
             }
           }
-          return arraySavingThrows;
+          return arraySavingThrowsTemp;
         }
 
-        return arraySavingThrows;
+        return [];
       }
 }

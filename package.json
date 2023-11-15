@@ -4,11 +4,13 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "json:server": "json-server --watch db.json",
-    "json:server:routes": "json-server --watch db.json --routes routes.json"
+    "json:server:routes": "json-server --watch db.json --routes routes.json",
+    "build": "ng build --base-href=/gerador-personagem-Dungeons-and-Dragons/",
+    "ghpages": "angular-cli-ghpages --dir=dist/gerador-personagem-Dungeons-and-Dragons",
+    "deploy": "npm run build & npm run ghpages"
   },
   "private": true,
   "dependencies": {

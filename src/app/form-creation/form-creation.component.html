@@ -33,9 +33,6 @@
             required      
             />
           <label for="input-nameCharacter">Nome do Personagem</label> 
-          <div class="red-text" [hidden]="nameCharacter.valid || nameCharacter.untouched">
-            Informe o nome do personagem.
-          </div>
           <div class="red-text" *ngIf="nameCharacter.errors?.['required'] && nameCharacter.touched">
             Nome completo do personagem é obrigatório.
           </div>

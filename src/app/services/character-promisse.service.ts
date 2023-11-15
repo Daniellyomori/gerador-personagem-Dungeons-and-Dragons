@@ -30,7 +30,7 @@ export class CharacterPromisseService{
       patch(character: Character): Promise<Character> {
         const observable: Observable<Character> = this.httpClient
         .patch<Character>(
-          `${this.URL}/${character.characterName}`,
+          `${this.URL}?characterName=${character.characterName}`,
           JSON.stringify(character),
           this.httpOptions);
         return lastValueFrom(observable);

@@ -5,6 +5,7 @@ import { Shared } from 'src/app/util/shared';
 import { FormCreationService } from './form-creation.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { CharacterObservableService } from '../services/character-observable.service';
 
 @Component({
   selector: 'app-form-creation',
@@ -23,7 +24,8 @@ export class FormCreationComponent implements OnInit{
   isSuccess!: boolean;
   message!: string;
 
-  constructor(private characterService : FormCreationService, private router: Router){}
+  constructor(private characterService : FormCreationService, private router: Router,
+      private characterObservableService: CharacterObservableService){}
 
   modal = {
     show: false,
@@ -33,18 +35,17 @@ export class FormCreationComponent implements OnInit{
   
   ngOnInit(): void {
     Shared.initializeWebStorage();
-    this.character = new Character('',  '','','');
+    this.character = new Character('', '','','');
     this.characters = this.characterService.getCharacters();
   }
 
   onSubmit() {
     this.isSubmitted = true;
-    if(!this.characterService.isExist(this.character.characterName)){
-      this.characterService.save(this.character);
-    }
-    else{
-      this.characterService.update(this.character);
-    }
+    this.characterObservableService.save(this.character).subscribe(
+      (characterSalvo: Character) => {
+        console.log('Personagem salvo com sucesso:', characterSalvo);
+      }
+    );
 
     this.isShowMessage = true;
     this.isSuccess = true;

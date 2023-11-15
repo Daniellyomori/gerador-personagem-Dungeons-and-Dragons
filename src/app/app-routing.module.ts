@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'cadastro', component: FormCreationComponent },
   { path: 'listagem', component: ListCharactersComponent},
   { path: 'cadastro/:characterName', component: FormCreationDetailsComponent},
-  { path: 'listagem/detalhes/:characterName', component: ListCharacterDetailsComponent},
+  { path: 'listagem/:characterName', component: ListCharacterDetailsComponent},
   { path: '', redirectTo: 'inicio', pathMatch: 'full' },
 ];
 

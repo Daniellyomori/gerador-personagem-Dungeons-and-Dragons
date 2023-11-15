@@ -1,52 +1,56 @@
 import { CharacterSheetPromisseService } from './../services/character-sheet-promisse.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, concatMap, map, tap, throwError } from 'rxjs';
 import { CharacterSheet } from './../model/characterSheet';
 import { Injectable } from "@angular/core";
 import { CharacterPromisseService } from '../services/character-promisse.service';
 import { Character } from '../model/character';
 import { WebStorageUtil } from '../util/web-storage-util';
 import { Constants } from '../util/constants';
+import { AppError } from '../util/app-error';
+import { CharacterObservableService } from '../services/character-observable.service';
+import { ErrorUtil } from '../util/error-util';
 
 @Injectable({
     providedIn:'root'
 })
 export class FormCreationDetailsService{
-    characterWS : Character;
+    character!: Character;
 
-    constructor(private characterPromisseService: CharacterPromisseService,
+    constructor(private characterObservableService: CharacterObservableService,
                 private characterSheetPromisseService: CharacterSheetPromisseService) {
-        this.characterWS = WebStorageUtil.get(Constants.CHARACTER_NAME_KEY);
     }
 
-    do(characterSheet: CharacterSheet, characterName: string): Promise<CharacterSheet>{
-        const p = new Promise<CharacterSheet>((resolve, reject) => {
+    do(characterSheet: CharacterSheet, characterName: string): Observable<CharacterSheet>{
             if(characterSheet == null){
-                reject('Ficha não pode ser vazia');
+                return throwError(
+                    new AppError(
+                      'Não pode ser nulo'
+                    )
+                  );
             }
-            let character!: Character;
-            this.characterPromisseService.getByCharacterName(characterName)
-            .then((c: Character[])=> {
-                character = c[0];
-                characterSheet.idCharacter = character.id;
-
-                this.characterWS = WebStorageUtil.get(Constants.CHARACTER_NAME_KEY);
-                this.characterWS.characterSheet.push(characterSheet);
-
-                localStorage.setItem(
-                    Constants.CHARACTER_NAME_KEY,
-                    JSON.stringify(this.characterWS)
-                );
-
-                let p1 = this.characterPromisseService.patch(character);
-                let p2 = this.characterSheetPromisseService.save(characterSheet);
-                Promise.all([p1, p2]).then((values) => {
-                    resolve(values[1]);
-                  });
-                })
-                .catch((e) => {
-                  reject('Opps!!! O usuário não foi encontrado!');
-                });
-            });
-        return p;
+            let result$ = this.characterObservableService.getByCharacterName(characterName).pipe(
+                map((characters) => characters[0]),
+                tap((character) => {
+                  this.character = character;
+                }),
+                tap((character) => {
+                  console.log(character);
+                }),
+                concatMap((character: Character) => {
+                    this.character.characterSheet?.push(characterSheet);
+                    WebStorageUtil.set(Constants.CHARACTER_NAME_KEY, this.character);
+                    const result$ = this.characterObservableService.patch(character).pipe(
+                        concatMap(() => {
+                          return this.characterSheetPromisseService.save(characterSheet);
+                        })
+                      );
+              
+                      return result$;
+                    }),
+                    catchError(ErrorUtil.handleError)
+                  );
+              
+                  console.log(result$);
+                  return result$;
     }
 }

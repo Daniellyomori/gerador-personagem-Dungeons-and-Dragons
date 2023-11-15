@@ -6,6 +6,64 @@
       "personalityTraits": "Teste",
       "ideals": "Teste",
       "bonds": "Teste"
+    },
+    {
+      "id": "813",
+      "characterName": "A",
+      "personalityTraits": "A",
+      "ideals": "A",
+      "bonds": "A",
+      "characterSheet": [
+        {
+          "id": 113,
+          "classCharacter": "Ladino",
+          "race": "Elfo da Floresta",
+          "aligment": "Neutral Evil",
+          "strength": 7,
+          "dexterity": 5,
+          "constitution": 12,
+          "intelligence": 8,
+          "wisdom": 13,
+          "charisma": 11,
+          "proeficiencyBonus": 2,
+          "armorClass": 15,
+          "initiative": 5,
+          "velocity": 10.5,
+          "perception": 10,
+          "arraySavingThrows": [
+            {
+              "nome": "Força",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Destreza",
+              "badge": 5,
+              "principal": true
+            },
+            {
+              "nome": "Constituição",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Inteligência",
+              "badge": 3,
+              "principal": true
+            },
+            {
+              "nome": "Sabedoria",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Carisma",
+              "badge": 1,
+              "principal": false
+            }
+          ]
+        }
+      ]
     }
   ],
   "characterSheet": [
@@ -15,7 +73,7 @@
       "classCharacter": "Monge",
       "race": "Tiefling Abissal",
       "aligment": "Chaotic Good",
-      "strength": 8,
+      "strength": 9,
       "dexterity": 13,
       "constitution": 9,
       "intelligence": 15,
@@ -60,41 +118,41 @@
       ]
     },
     {
-      "id": 517,
-      "classCharacter": "Bárbaro",
-      "race": "Humano Variante",
-      "aligment": "Neutral Good",
-      "strength": 11,
-      "dexterity": 12,
-      "constitution": 15,
-      "intelligence": 13,
-      "wisdom": 12,
-      "charisma": 13,
+      "id": 113,
+      "classCharacter": "Ladino",
+      "race": "Elfo da Floresta",
+      "aligment": "Neutral Evil",
+      "strength": 7,
+      "dexterity": 5,
+      "constitution": 12,
+      "intelligence": 8,
+      "wisdom": 13,
+      "charisma": 11,
       "proeficiencyBonus": 2,
-      "armorClass": 22,
-      "initiative": 12,
-      "velocity": 9,
+      "armorClass": 15,
+      "initiative": 5,
+      "velocity": 10.5,
       "perception": 10,
       "arraySavingThrows": [
         {
           "nome": "Força",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Destreza",
           "badge": 5,
           "principal": true
         },
         {
-          "nome": "Destreza",
+          "nome": "Constituição",
           "badge": 1,
           "principal": false
-        },
-        {
-          "nome": "Constituição",
-          "badge": 3,
-          "principal": true
         },
         {
           "nome": "Inteligência",
-          "badge": 1,
-          "principal": false
+          "badge": 3,
+          "principal": true
         },
         {
           "nome": "Sabedoria",
@@ -106,8 +164,7 @@
           "badge": 1,
           "principal": false
         }
-      ],
-      "idCharacter": "1"
+      ]
     }
   ]
 }

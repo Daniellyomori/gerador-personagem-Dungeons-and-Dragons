@@ -12,11 +12,11 @@
           </thead>
   
           <tbody>
-            <tr 
-              *ngFor="let c of this.characters"
-              [routerLink]="['listagem/detalhes', c.characterName]"
-            >
-              <td>{{ c.characterName}}</td>
+            <tr *ngFor="let c of this.characters" >
+              <td [routerLink]="['/listagem', c.characterName]">{{ c.characterName | titlecase }}</td>
+              <td class="right">
+                <a><i class="material-icons my-icon-size" (click)="onEdit(c)">edit</i></a>
+              </td>
             </tr>
           </tbody>
         </table>

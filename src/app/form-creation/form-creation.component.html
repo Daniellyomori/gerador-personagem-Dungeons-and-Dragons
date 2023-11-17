@@ -111,14 +111,25 @@
           Informe os ideais do seu personagem.
         </div>
       </div>
+      <div>
+        <button
+          class="btn waves-effect waves-light red darken-4 left"
+          type="button"
+          [disabled]="!form.valid"
+          (click)="onSubmit()"
+        >
+          Gerar
+          <i class="material-icons right">save</i>
+        </button>
+      </div>
+
       <button
-        class="btn waves-effect waves-light red darken-4"
+        class="btn waves-effect waves-light red darken-4 right"
         type="button"
-        [disabled]="!form.valid"
-        (click)="onSubmit()"
+        (click)="limpar()"
       >
-        Gerar
-        <i class="material-icons right">save</i>
+        Limpar
+        <i class="material-icons right">delete</i>
       </button>
     </form>
   </div>

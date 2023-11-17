@@ -77,24 +77,8 @@ export class FormCreationComponent implements OnInit{
     this.character = clone;
   }
 
-  onDelete(characterName: string){
-    let confirmation = window.confirm(
-      'Remover ' + characterName + '?'
-    );
-    if (!confirmation) {
-      return;
-    }
-    let response: boolean = this.characterService.delete(characterName);
-    this.isShowMessage = true;
-    this.isSuccess = response;
-    if (response) {
-      this.message = 'Personagem foi removido com sucesso!';
-    } else {
-      this.message = 'Opps! O personagem não pode ser removido!';
-    }
-    this.characters = this.characterService.getCharacters();
-    this.characterService.notifyTotalCharacters();
-
+  limpar(){
+    this.form.reset();
   }
 }
 

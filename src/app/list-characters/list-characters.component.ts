@@ -13,8 +13,6 @@ import { CharacterSheetObservableService } from '../services/character-sheet-obs
   styleUrls: ['./list-characters.component.css']
 })
 export class ListCharactersComponent implements OnInit {
-  @ViewChild('form') form!: NgForm;
-  
   character! : Character;
   characters: Character[] = [];
 

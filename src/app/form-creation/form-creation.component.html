@@ -1,0 +1,143 @@
+<app-modal
+  [show]="modal.show"
+  [content]="modal"
+  (closeEvent)="onCloseModal()"
+></app-modal>
+<div class="container contact">
+  <h5 class="center">GERAR PERSONAGEM</h5>
+  <hr />
+
+  <div class="row">
+    <div class="col s12">
+      <div
+        id="div-character-creation-message"
+        class="card-panel white-text"
+        [class.red]="!this.isSuccess"
+        [class.blue]="this.isSuccess"
+        *ngIf="this.isShowMessage"
+      >
+        {{ this.message }}
+      </div>
+    </div>
+
+    <app-modal-explanation-creation
+      [characterName]="this.character.characterName"
+      [characterTraits]="this.character.personalityTraits"
+      [characterIdeals]="this.character.ideals"
+      [characterBonds]="this.character.bonds"
+      class="center"
+      (creationCharacterEvent)="this.onCreationCharacterEvent($event)"
+    ></app-modal-explanation-creation>
+
+    <form class="col s12" #form="ngForm" (submit)="onSubmit()">
+      <div class="input-field col s12">
+        <input
+          id="input-characterName"
+          name="input-characterName"
+          type="text"
+          class="validate"
+          [(ngModel)]="this.character.characterName"
+          pattern="^[a-zA-Z0-9_.-]*$"
+          #nameCharacter="ngModel"
+          required
+        />
+        <label for="input-nameCharacter">Nome do Personagem</label>
+        <div
+          class="red-text"
+          *ngIf="nameCharacter.errors?.['required'] && nameCharacter.touched"
+        >
+          Nome completo do personagem é obrigatório.
+        </div>
+        <span
+          class="helper-text"
+          data-error="O campo é inválido"
+          data-success="Ok!"
+        ></span>
+      </div>
+
+      <div class="input-field col s12">
+        <input
+          id="input-characterTraits"
+          name="input-characterTraits"
+          type="text"
+          [(ngModel)]="this.character.personalityTraits"
+          class="validate"
+          #characterTraits="ngModel"
+          required
+        />
+        <label for="input-characterTraits">Traços Personalidade</label>
+        <div
+          class="red-text"
+          [hidden]="characterTraits.valid || characterTraits.untouched"
+        >
+          Informe os traços de personalidade do seu personagem.
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <input
+          id="input-characterIdeals"
+          name="input-characterIdeals"
+          type="text"
+          [(ngModel)]="this.character.ideals"
+          class="validate"
+          #characterBonds="ngModel"
+          required
+        />
+        <label for="input-characterIdeals">Ideais</label>
+        <div
+          class="red-text"
+          [hidden]="characterIdeals.valid || characterIdeals.untouched"
+        >
+          Informe os ideais do seu personagem.
+        </div>
+      </div>
+
+      <div class="input-field col s12">
+        <input
+          id="input-characterBonds"
+          name="input-form-characterBonds"
+          type="text"
+          [(ngModel)]="this.character.bonds"
+          class="validate"
+          #characterIdeals="ngModel"
+          required
+        />
+        <label for="input-characterBonds">Vinculos</label>
+        <div
+          class="red-text"
+          [hidden]="characterBonds.valid || characterBonds.untouched"
+        >
+          Informe os ideais do seu personagem.
+        </div>
+      </div>
+      <div>
+        <button
+          class="btn waves-effect waves-light red darken-4 left"
+          type="button"
+          [disabled]="!form.valid"
+          (click)="onSubmit()"
+        >
+          Gerar
+          <i class="material-icons right">save</i>
+        </button>
+      </div>
+
+      <button
+        class="btn waves-effect waves-light red darken-4 right"
+        type="button"
+        (click)="limpar()"
+      >
+        Limpar
+        <i class="material-icons right">delete</i>
+      </button>
+    </form>
+  </div>
+  <!-- link home -->
+  <div class="row">
+    <div class="col s12 m6 offset-m3 center">
+      <a routerLink="/inicio"> VOLTAR AO MENU PRINCIPAL </a>
+    </div>
+  </div>
+  <!-- link home -->
+</div>

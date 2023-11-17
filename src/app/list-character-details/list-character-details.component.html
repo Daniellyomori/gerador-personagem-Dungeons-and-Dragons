@@ -1,0 +1,113 @@
+<div class="container contact">
+  <h5 class="center">PERSONAGEM {{ characterName | titlecase }}</h5>
+  <hr />
+  <div class="row">
+    <div class="col s12"></div>
+    <form class="col s12" #form="ngForm">
+      <div class="input-field col s12">
+        <input id="input-characterName" name="input-characterName" />
+        <label for="input-characterName" class="active"
+          >Nome do Personagem</label
+        >
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-characterTraits" name="input-characterTraits" />
+        <label for="input-characterTraits" class="active"
+          >Traços Personalidade</label
+        >
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-characterIdeals" name="input-characterIdeals" />
+        <label for="input-characterIdeals" class="active">Ideais</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-characterBonds" name="input-form-characterBonds" />
+        <label for="input-characterBonds" class="active">Vinculos</label>
+      </div>
+      <div class="input-field col s12">
+        <input id="input-class" name="input-class" />
+        <label for="input-class" class="active">Classe</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-race" name="input-race" />
+        <label for="input-race" class="active">Raça</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-aligment" name="input-aligment" />
+        <label for="input-aligment" class="active">Alinhamento</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-strenght" name="input-strenght" />
+        <label for="input-strenght" class="active">Força</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-dexterity" name="input-dexterity" />
+        <label for="input-dexterity" class="active">Destreza</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-constitution" name="input-constitution" />
+        <label for="input-constitution" class="active">Constituição</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-intelligence" name="input-intelligence" />
+        <label for="input-intelligence" class="active">Inteligência</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-wisdom" name="input-wisdom" />
+        <label for="input-wisdom" class="active">Sabedoria</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-charisma" name="input-charisma" />
+        <label for="input-charisma" class="active">Carisma</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-proeficiencybonus" name="input-proeficiencybonus" />
+        <label for="input-proeficiencybonus" class="active"
+          >Bônus de Proeficiência</label
+        >
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-armor" name="input-armor" />
+        <label for="input-armor" class="active">Armadura</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-initiative" name="input-initiative" />
+        <label for="input-initiative" class="active">Iniciativa</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-velocity" name="input-velocity" />
+        <label for="input-velocity" class="active">Deslocamento</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="input-perception" name="input-perception" />
+        <label for="input-perception" class="active">Percepção</label>
+      </div>
+
+      <div class="collection" id="collection-savingthrows"></div>
+    </form>
+
+    <!-- link home -->
+    <div class="row">
+      <div class="col s12 m6 offset-m3 center">
+        <a routerLink="/inicio"> VOLTAR AO MENU PRINCIPAL </a>
+      </div>
+    </div>
+    <!-- link home -->
+  </div>
+</div>

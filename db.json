@@ -1,0 +1,269 @@
+{
+  "characters": [
+    {
+      "id": "546",
+      "characterName": "Teste",
+      "personalityTraits": "Teste",
+      "ideals": "Teste",
+      "bonds": "Teste",
+      "characterSheet": [
+        {
+          "id": 228,
+          "classCharacter": "Guerreiro",
+          "race": "Tiefling Infernal",
+          "aligment": "Chaotic Evil",
+          "strength": 12,
+          "dexterity": 15,
+          "constitution": 12,
+          "intelligence": 10,
+          "wisdom": 16,
+          "charisma": 10,
+          "proeficiencyBonus": 2,
+          "armorClass": 25,
+          "initiative": 15,
+          "velocity": 9,
+          "perception": 10,
+          "arraySavingThrows": [
+            {
+              "nome": "Força",
+              "badge": 5,
+              "principal": true
+            },
+            {
+              "nome": "Destreza",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Constituição",
+              "badge": 3,
+              "principal": true
+            },
+            {
+              "nome": "Inteligência",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Sabedoria",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Carisma",
+              "badge": 1,
+              "principal": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "848",
+      "characterName": "PersonagemTeste",
+      "personalityTraits": "Calmo",
+      "ideals": "Justiça",
+      "bonds": "personagem2",
+      "characterSheet": [
+        {
+          "id": 659,
+          "classCharacter": "Monge",
+          "race": "Anão da Montanha",
+          "aligment": "Lawful Neutral",
+          "strength": 12,
+          "dexterity": 12,
+          "constitution": 14,
+          "intelligence": 9,
+          "wisdom": 15,
+          "charisma": 10,
+          "proeficiencyBonus": 2,
+          "armorClass": 22,
+          "initiative": 12,
+          "velocity": 7.5,
+          "perception": 10,
+          "arraySavingThrows": [
+            {
+              "nome": "Força",
+              "badge": 5,
+              "principal": true
+            },
+            {
+              "nome": "Destreza",
+              "badge": 3,
+              "principal": true
+            },
+            {
+              "nome": "Constituição",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Inteligência",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Sabedoria",
+              "badge": 1,
+              "principal": false
+            },
+            {
+              "nome": "Carisma",
+              "badge": 1,
+              "principal": false
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "characterSheet": [
+    {
+      "id": 248,
+      "classCharacter": "Bruxo",
+      "race": "Halflings Robusto",
+      "aligment": "Neutral",
+      "strength": 12,
+      "dexterity": 15,
+      "constitution": 10,
+      "intelligence": 11,
+      "wisdom": 15,
+      "charisma": 13,
+      "proeficiencyBonus": 2,
+      "armorClass": 25,
+      "initiative": 15,
+      "velocity": 9,
+      "perception": 10,
+      "arraySavingThrows": [
+        {
+          "nome": "Força",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Destreza",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Constituição",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Inteligência",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Sabedoria",
+          "badge": 5,
+          "principal": true
+        },
+        {
+          "nome": "Carisma",
+          "badge": 3,
+          "principal": true
+        }
+      ]
+    },
+    {
+      "id": 228,
+      "classCharacter": "Guerreiro",
+      "race": "Tiefling Infernal",
+      "aligment": "Chaotic Evil",
+      "strength": 12,
+      "dexterity": 15,
+      "constitution": 12,
+      "intelligence": 10,
+      "wisdom": 16,
+      "charisma": 10,
+      "proeficiencyBonus": 2,
+      "armorClass": 25,
+      "initiative": 15,
+      "velocity": 9,
+      "perception": 10,
+      "arraySavingThrows": [
+        {
+          "nome": "Força",
+          "badge": 5,
+          "principal": true
+        },
+        {
+          "nome": "Destreza",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Constituição",
+          "badge": 3,
+          "principal": true
+        },
+        {
+          "nome": "Inteligência",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Sabedoria",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Carisma",
+          "badge": 1,
+          "principal": false
+        }
+      ]
+    },
+    {
+      "id": 659,
+      "classCharacter": "Monge",
+      "race": "Anão da Montanha",
+      "aligment": "Lawful Neutral",
+      "strength": 12,
+      "dexterity": 12,
+      "constitution": 14,
+      "intelligence": 9,
+      "wisdom": 15,
+      "charisma": 10,
+      "proeficiencyBonus": 2,
+      "armorClass": 22,
+      "initiative": 12,
+      "velocity": 7.5,
+      "perception": 10,
+      "arraySavingThrows": [
+        {
+          "nome": "Força",
+          "badge": 5,
+          "principal": true
+        },
+        {
+          "nome": "Destreza",
+          "badge": 3,
+          "principal": true
+        },
+        {
+          "nome": "Constituição",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Inteligência",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Sabedoria",
+          "badge": 1,
+          "principal": false
+        },
+        {
+          "nome": "Carisma",
+          "badge": 1,
+          "principal": false
+        }
+      ]
+    }
+  ]
+}

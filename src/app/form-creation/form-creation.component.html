@@ -1,8 +1,3 @@
-<app-modal
-  [show]="modal.show"
-  [content]="modal"
-  (closeEvent)="onCloseModal()"
-></app-modal>
 <div class="container contact">
   <h5 class="center">GERAR PERSONAGEM</h5>
   <hr />
@@ -26,7 +21,6 @@
       [characterIdeals]="this.character.ideals"
       [characterBonds]="this.character.bonds"
       class="center"
-      (creationCharacterEvent)="this.onCreationCharacterEvent($event)"
     ></app-modal-explanation-creation>
 
     <form class="col s12" #form="ngForm" (submit)="onSubmit()">
@@ -44,15 +38,18 @@
         <label for="input-nameCharacter">Nome do Personagem</label>
         <div
           class="red-text"
-          *ngIf="nameCharacter.errors?.['required'] && nameCharacter.touched"
+          *ngIf="
+            nameCharacter.invalid &&
+            (nameCharacter.dirty || nameCharacter.touched)
+          "
         >
-          Nome completo do personagem é obrigatório.
+          <div class="red-text" *ngIf="nameCharacter.errors?.['pattern']">
+            A entrada não atende ao padrão.
+          </div>
+          <div class="red-text" *ngIf="nameCharacter.errors?.['required']">
+            Este campo é obrigatório.
+          </div>
         </div>
-        <span
-          class="helper-text"
-          data-error="O campo é inválido"
-          data-success="Ok!"
-        ></span>
       </div>
 
       <div class="input-field col s12">

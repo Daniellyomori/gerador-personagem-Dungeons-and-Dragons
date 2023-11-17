@@ -62,16 +62,6 @@ export class FormCreationComponent implements OnInit{
     });
   }
 
-  onCreationCharacterEvent(event: boolean){
-    this.modal.show = event;
-    this.modal.title = 'Aviso';
-    this.modal.text = 'Será iniciada a criação aleatória do personagem';
-  }
-
-  onCloseModal(){
-    this.modal.show = false;
-  }
-
   onEdit(character: Character) {
     let clone = Character.clone(character);
     this.character = clone;
